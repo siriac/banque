@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>liste de compte</title>
+</h:head>
+<h:body>
+<div>
+<h1>listes des compte du clinet numero:<h:outputText value="#{banqueMB.idUser}" /></h1>
+</div>
+<div>
+<h:dataTable value="#{banqueMB.getListeComptes(banqueMB.idUser)}" var="cp">
+<h:column>
+<f:facet name="header">
+<h:outputText value="numero de compte" />
+</f:facet>
+<h:outputText value="#{cp.code}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="montant du compte" />
+</f:facet>
+<h:outputText value="#{cp.solde}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="date de creation" />
+</f:facet>
+<h:outputText value="#{cp.dateCreation}" />
+</h:column>
+</h:dataTable>
+</div>
+</h:body>
+</html>
